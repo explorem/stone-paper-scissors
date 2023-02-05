@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Roboto Slab", serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to left, #bdbbbe 0%, #9d9ea3 100%),
+    radial-gradient(
+      88% 271%,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(254, 254, 254, 0.25) 1%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    radial-gradient(
+      50% 100%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  background-blend-mode: normal, lighten, soft-light;
+}
+
+.wrap {
+  padding: 5%;
+  max-width: 1024px;
+}
+
+.result,
+.result .five-wins,
+.result .five-losses {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.result.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 10vw;
+  background-color: rgba(128, 128, 128, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.result.active .five-wins.active,
+.result.active .five-losses.active {
+  display: flex;
+  max-width: 1024px;
+  min-width: 200px;
+  max-height: 1800px;
+  height: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.five-wins img,
+.five-losses img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.five-wins p,
+.five-losses p {
+  padding: 5%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.play-again {
+  display: block;
+  margin: 0 auto 5% auto;
+  width: 70%;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  border-style: none;
+  -webkit-box-shadow: 6px 9px 17px -7px rgb(9, 9, 10);
+  -moz-box-shadow: 6px 9px 17px -7px rgb(9, 9, 10);
+  box-shadow: 6px 9px 17px -7px rgb(9, 9, 10);
+  line-height: 50px;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+}
+
+.game-title {
+  margin-bottom: 5%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.game-rules {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.hands {
+  width: 100%;
+  height: 28vh;
+  margin: 5vh auto;
+  padding: 5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.selected-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  margin: 0 2%;
+  border: 4px solid #808080;
+  border-radius: 10px;
+}
+
+.hands img {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  filter: invert(57%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(89%)
+    contrast(90%);
+}
+
+.start-game {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  border-radius: 10px;
+  border-style: none;
+  -webkit-box-shadow: 6px 9px 17px -7px rgb(9, 9, 10);
+  -moz-box-shadow: 6px 9px 17px -7px rgb(9, 9, 10);
+  box-shadow: 6px 9px 17px -7px rgb(9, 9, 10);
+  line-height: 50px;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.start-game:active {
+  transform: translate(2px, 2px);
+}
+
+.game-data {
+  margin-top: 8vw;
+}
+
+.game-data p {
+  font-size: 1.6rem;
+}
+
+.game-data span {
+  font-weight: bold;
+}
+
+@media (orientation: portrait) and (min-width: 540px) {
+  .hands {
+    height: 35vh;
+    margin: 2vh auto;
+  }
+  .hands img {
+    padding: 8%;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 768px) {
+  .five-wins p,
+  .five-losses p {
+    font-size: 3.2rem;
+  }
+
+  .play-again {
+    font-size: 2.4rem;
+    letter-spacing: 4px;
+    line-height: 70px;
+  }
+  .game-title {
+    font-size: 3rem;
+  }
+
+  .game-rules {
+    font-size: 2.4rem;
+  }
+  .hands img {
+    padding: 12%;
+  }
+  .start-game {
+    letter-spacing: 2px;
+    line-height: 60px;
+    font-size: 1.8rem;
+  }
+
+  .game-data {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .actual-round {
+    width: 50%;
+  }
+
+  .game-results {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .game-results p {
+    width: 50%;
+    text-align: right;
+  }
+
+  .game-data p {
+    font-size: 2.4rem;
+  }
+}
+@media (orientation: portrait) and (min-width: 1024px) {
+  .game-title {
+    font-size: 4rem;
+  }
+
+  .game-rules {
+    font-size: 2.8rem;
+  }
+  .hands img {
+    padding: 20%;
+  }
+  .start-game {
+    letter-spacing: 4px;
+    line-height: 80px;
+    font-size: 2.4rem;
+  }
+
+  .game-data p {
+    font-size: 2.8em;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 400px) {
+  .five-wins img,
+  .five-losses img {
+    width: 30%;
+  }
+
+  .five-wins p,
+  .five-losses p {
+    font-size: 1.6rem;
+  }
+
+  .play-again {
+    letter-spacing: 2px;
+    line-height: 40px;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .game-rules {
+    font-size: 1.6rem;
+  }
+
+  .hands {
+    height: 35vw;
+  }
+
+  .hands img {
+    padding: 20%;
+  }
+
+  .game-data {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4vw;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .actual-round {
+    width: 50%;
+  }
+
+  .game-results {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .game-results p {
+    width: 50%;
+    text-align: right;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 800px) {
+  .game-title {
+    font-size: 2.6rem;
+  }
+
+  .game-rules {
+    font-size: 2rem;
+  }
+  .game-data {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  .game-data p {
+    font-size: 2em;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .result.active {
+    padding: 20px;
+  }
+  .five-wins p,
+  .five-losses p {
+    font-size: 3.2rem;
+  }
+
+  .play-again {
+    font-size: 2.4rem;
+    letter-spacing: 4px;
+    line-height: 70px;
+  }
+
+  .wrap {
+    padding: 1%;
+  }
+  .game-title {
+    margin-bottom: 3%;
+    font-size: 3.2rem;
+  }
+
+  .game-rules {
+    font-size: 2.4rem;
+  }
+  .selected-card {
+    width: 25%;
+  }
+  .hands {
+    margin: 0 auto;
+    max-height: 360px;
+  }
+  .hands img {
+    padding: 25%;
+  }
+  .start-game {
+    line-height: 60px;
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+  }
+
+  .game-data p {
+    font-size: 2.4rem;
+  }
+}

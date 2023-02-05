@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stone, Paper, Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto+Slab:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1 class="game-title">
+          Stone, paper, scissors - which one will you choose?
+        </h1>
+        <p class="game-rules">
+          Rules: Win after five wins. Select your card and push start button:
+        </p>
+      </header>
+      <main>
+        <section class="hands">
+          <div class="selected-card">
+            <img
+              class="hand paper"
+              data-option="paper"
+              src="hand-solid.svg"
+              alt="hand-paper"
+            />
+          </div>
+          <div class="selected-card">
+            <img
+              class="hand scissors"
+              data-option="scissors"
+              src="hand-scissors-solid.svg"
+              alt="hand-scissors"
+            />
+          </div>
+          <div class="selected-card">
+            <img
+              class="hand stone"
+              data-option="stone"
+              src="hand-fist-solid.svg"
+              alt="hand-stone"
+            />
+          </div>
+        </section>
+        <button class="start-game">Let's play</button>
+        <div class="game-data">
+          <section class="actual-round">
+            <p>Your choise: <span data-summary="your-choise"></span></p>
+            <p>Computer choise: <span data-summary="computer-choise"></span></p>
+            <p>Result: <span data-summary="game-result"></span></p>
+          </section>
+          <section class="game-results">
+            <p>Round: <span class="rounds">0</span></p>
+            <p>Wins: <span class="wins">0</span></p>
+            <p>Losess: <span class="losses">0</span></p>
+            <p>Draws: <span class="draws">0</span></p>
+          </section>
+        </div>
+        <div class="result">
+          <div class="five-wins">
+            <img src="happy.png" alt="happy-people-you-win" />
+            <p>Congratulation! You win the game!</p>
+            <button class="play-again">Play again</button>
+          </div>
+          <div class="five-losses">
+            <img src="confined.png" alt="sad-people-you-loose" />
+            <p>You lose.. Try again!</p>
+            <button class="play-again">Play again</button>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
